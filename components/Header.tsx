@@ -19,7 +19,7 @@ export function LogoMark({ dark = false }: { dark?: boolean }) {
       aria-label="Pride Engineering Services LLC — Home"
     >
       <img
-        src={dark ? "/pride_logo_gold_fullsize.png" : "/pride-logo.png"}
+        src={dark ? "/pride-logo-gold-final.png" : "/pridelogo-removebg.png"}
         alt="Pride Engineering Services"
         className="h-20 w-auto object-contain"
       />

@@ -35,7 +35,7 @@ export default function ColdRoomsShowcase() {
     return (
         <section
             id="cold-rooms-showcase"
-            className="border-b border-line bg-surface"
+            className="border-b border-white/10 bg-navy text-white"
         >
             <div className="mx-auto max-w-[1440px] px-6 py-24 lg:px-12 lg:py-32">
 
@@ -44,11 +44,11 @@ export default function ColdRoomsShowcase() {
                         02 / Cold Rooms & Freezer Systems
                     </p>
 
-                    <h2 className="font-display text-4xl font-bold leading-tight tracking-tight text-navy sm:text-5xl lg:text-6xl">
+                    <h2 className="font-display text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
                         Temperature-controlled spaces built to perform.
                     </h2>
 
-                    <p className="mt-6 max-w-2xl text-base leading-relaxed text-navy/60">
+                    <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/65">
                         Purpose-built cold rooms, freezer systems and temperature-controlled
                         environments engineered to protect products, quality and performance.
                     </p>
@@ -68,7 +68,7 @@ export default function ColdRoomsShowcase() {
                                 />
                             </div>
 
-                            <div className="absolute inset-x-0 bottom-0 p-7">
+                            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy/90 via-navy/40 to-transparent p-7 pt-16">
                                 <h3 className="font-display text-2xl font-medium leading-tight text-white">
                                     {item.title}
                                 </h3>
@@ -84,6 +84,6 @@ export default function ColdRoomsShowcase() {
                 </div>
 
             </div>
-        </section >
+        </section>
     );
 }

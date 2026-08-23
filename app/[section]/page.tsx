@@ -34,7 +34,7 @@ const pages = {
     eyebrow: "Our projects",
     title: "Engineering solutions built around the way your facility operates.",
     intro: "A selection of refrigeration, cold storage, commercial kitchen and electromechanical projects designed for reliable performance and long-term operation.",
-    image: "YOUR_PROJECT_IMAGE_HERE",
+    image: "/projects.png",
     points: [
       "Cold storage and refrigeration facilities",
       "Commercial kitchen installations",
@@ -48,13 +48,13 @@ const pages = {
     eyebrow: "Start a conversation",
     title: "Let’s build reliability into every degree.",
     intro: "Tell us about your facility, operating conditions and goals. Our team will help define the engineering path forward.",
-    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=2200&q=88",
+    image: "/contact-image.png",
     points: ["Dubai, United Arab Emirates", "+968 98983622", "info@prideengs.com"],
   },
 } as const;
 
 const projectImages = [
-  "/cold-storage.",
+  "/cold-storage-facility.png",
   "/industrial-refrigeration.PNG",
   "/commercial.png",
 ];
@@ -133,7 +133,53 @@ function SectionContent({ section, page }: { section: string; page: (typeof page
       </section>
     );
   }
-  if (section === "process") return <section className="bg-navy text-white"><div className="mx-auto grid max-w-[1440px] gap-16 px-6 py-24 lg:grid-cols-12 lg:px-12 lg:py-36"><p className="font-display text-3xl font-medium leading-[1.34] text-white/80 lg:col-span-5 lg:text-5xl">{page.intro}</p><ol className="lg:col-span-6 lg:col-start-7">{page.points.map((point, index) => <li key={point} className="group flex items-center gap-6 border-t border-white/20 py-8 last:border-b"><span className="font-display text-5xl text-gold/70">0{index + 1}</span><span className="font-display text-2xl font-medium transition-transform duration-500 group-hover:translate-x-3">{point}</span><ArrowUpRight className="ml-auto text-gold" size={20} /></li>)}</ol></div></section>;
+  if (section === "process")
+    return (
+      <section className="bg-white text-navy">
+        <div className="mx-auto grid max-w-[1440px] gap-16 px-6 py-24 lg:grid-cols-12 lg:px-12 lg:py-36">
+
+          {/* Left — Process Introduction */}
+          <div className="lg:col-span-5">
+            <p className="font-display text-3xl font-medium leading-[1.34] tracking-[-0.025em] lg:text-5xl">
+              {page.intro}
+            </p>
+
+            <div className="mt-10 h-[2px] w-16 bg-gold" />
+
+            <p className="mt-8 max-w-md text-base leading-relaxed text-navy/60 lg:text-lg">
+              We begin by understanding your facility, operating conditions and
+              requirements. From system design and installation to commissioning,
+              monitoring and ongoing maintenance, we deliver solutions built for
+              reliable long-term performance.
+            </p>
+          </div>
+
+          {/* Right — Process Steps */}
+          <ol className="lg:col-span-6 lg:col-start-7">
+            {page.points.map((point, index) => (
+              <li
+                key={point}
+                className="group flex items-center gap-6 border-t border-navy/15 py-8 last:border-b"
+              >
+                <span className="font-display text-5xl font-medium text-gold">
+                  0{index + 1}
+                </span>
+
+                <span className="font-display text-2xl font-medium text-navy transition-transform duration-500 group-hover:translate-x-3 lg:text-3xl">
+                  {point}
+                </span>
+
+                <ArrowUpRight
+                  className="ml-auto shrink-0 text-gold transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1"
+                  size={20}
+                />
+              </li>
+            ))}
+          </ol>
+
+        </div>
+      </section>
+    );
   if (section === "projects") return (
     <section className="px-6 py-24 lg:px-12 lg:py-36">
       <div className="mx-auto max-w-[1440px]">
@@ -164,40 +210,174 @@ function SectionContent({ section, page }: { section: string; page: (typeof page
       </div>
     </section>
   );
-  if (section === "contact") {
+  if (section === "contact")
     return (
-      <section className="relative min-h-screen overflow-hidden bg-navy text-white">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-40"
-          style={{ backgroundImage: `url('${page.image}')` }}
-        />
+      <section className="bg-white text-navy">
+        <div className="mx-auto max-w-[1440px] px-6 py-24 lg:px-12 lg:py-32">
+          <div className="grid gap-16 lg:grid-cols-12 lg:gap-20">
 
-        <div className="relative mx-auto flex min-h-screen max-w-[1440px] items-end px-6 py-16 lg:px-12 lg:py-24">
-          <div className="grid w-full gap-12 lg:grid-cols-12">
+            {/* LEFT — Contact Information */}
+            <div className="lg:col-span-4">
+              <h1 className="max-w-xl font-display text-4xl font-medium leading-[1.12] tracking-[-0.035em] lg:text-6xl">
+                When it has to work,
+                <br />
+                it has to be Pride
+              </h1>
 
-            <p className="font-display text-4xl font-medium leading-[1.18] lg:col-span-8 lg:text-7xl">
-              {page.intro}
-            </p>
+              <div className="mt-10 h-[2px] w-16 bg-gold" />
 
-            <div className="lg:col-span-3 lg:col-start-10">
-              <a
-                href="mailto:info@prideengs.com"
-                className="inline-flex items-center gap-3 rounded-full bg-gold px-6 py-4 text-xs font-semibold uppercase tracking-[.16em]"
-              >
-                Email our team
-                <ArrowUpRight size={16} />
-              </a>
-
-              <p className="mt-8 whitespace-pre-line text-sm leading-loose text-white/70">
-                {page.points.join("\n")}
+              <p className="mt-10 max-w-md text-base leading-relaxed text-navy/70 lg:text-lg">
+                Fill in the form or reach out to us directly.
+                <br />
+                Our team will get back to you as soon as possible.
               </p>
+
+              <div className="mt-12 space-y-8">
+
+                {/* Location */}
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.12em] text-gold">
+                    Location
+                  </p>
+
+                  <p className="mt-2 text-base leading-relaxed text-navy/80">
+                    Pride Engineering Services LLC,
+                    <br />
+                    Ghala Industrial Area,
+                    <br />
+                    Muscat, Oman 115
+                  </p>
+                </div>
+
+                {/* Phone */}
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.12em] text-gold">
+                    Phone
+                  </p>
+
+                  <p className="mt-2 text-base text-navy/80">
+                    +968 98983622
+                  </p>
+                </div>
+
+                {/* Email */}
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.12em] text-gold">
+                    Email
+                  </p>
+
+                  <a
+                    href="mailto:info@prideengs.com"
+                    className="mt-2 inline-block text-base text-navy/80 transition-colors hover:text-gold"
+                  >
+                    info@prideengs.com
+                  </a>
+                </div>
+
+              </div>
+            </div>
+
+            {/* RIGHT — Contact Form */}
+            <div className="lg:col-span-8">
+
+              <form className="grid grid-cols-1 gap-x-10 gap-y-10 md:grid-cols-2">
+
+                {/* First Name */}
+                <div>
+                  <label className="text-sm font-medium text-navy">
+                    First name*
+                  </label>
+
+                  <input
+                    type="text"
+                    placeholder="Name"
+                    className="mt-4 w-full border-0 border-b border-navy/20 bg-transparent px-0 pb-4 font-display text-2xl outline-none placeholder:text-navy/20 focus:border-gold"
+                  />
+                </div>
+
+                {/* Surname */}
+                <div>
+                  <label className="text-sm font-medium text-navy">
+                    Surname*
+                  </label>
+
+                  <input
+                    type="text"
+                    placeholder="Family name"
+                    className="mt-4 w-full border-0 border-b border-navy/20 bg-transparent px-0 pb-4 font-display text-2xl outline-none placeholder:text-navy/20 focus:border-gold"
+                  />
+                </div>
+
+                {/* Email */}
+                <div>
+                  <label className="text-sm font-medium text-navy">
+                    Email*
+                  </label>
+
+                  <input
+                    type="email"
+                    placeholder="your@email.com"
+                    className="mt-4 w-full border-0 border-b border-navy/20 bg-transparent px-0 pb-4 font-display text-2xl outline-none placeholder:text-navy/20 focus:border-gold"
+                  />
+                </div>
+
+                {/* Company */}
+                <div>
+                  <label className="text-sm font-medium text-navy">
+                    Company
+                  </label>
+
+                  <input
+                    type="text"
+                    placeholder="Company name"
+                    className="mt-4 w-full border-0 border-b border-navy/20 bg-transparent px-0 pb-4 font-display text-2xl outline-none placeholder:text-navy/20 focus:border-gold"
+                  />
+                </div>
+
+                {/* Subject */}
+                <div className="md:col-span-2">
+                  <label className="text-sm font-medium text-navy">
+                    Subject
+                  </label>
+
+                  <input
+                    type="text"
+                    placeholder="e.g. Refrigeration project"
+                    className="mt-4 w-full border-0 border-b border-navy/20 bg-transparent px-0 pb-4 font-display text-2xl outline-none placeholder:text-navy/20 focus:border-gold"
+                  />
+                </div>
+
+                {/* Message */}
+                <div className="md:col-span-2">
+                  <label className="text-sm font-medium text-navy">
+                    Message
+                  </label>
+
+                  <textarea
+                    rows={4}
+                    placeholder="Tell us about your project or requirements"
+                    className="mt-4 w-full resize-none border-0 border-b border-navy/20 bg-transparent px-0 pb-4 font-display text-2xl outline-none placeholder:text-navy/20 focus:border-gold"
+                  />
+                </div>
+
+                {/* Submit */}
+                <div className="md:col-span-2">
+                  <button
+                    type="submit"
+                    className="inline-flex items-center gap-4 bg-gold px-8 py-5 text-xs font-semibold uppercase tracking-[0.18em] text-white transition-all duration-300 hover:translate-y-[-2px] hover:bg-gold/90"
+                  >
+                    Send Message
+                    <ArrowUpRight size={16} />
+                  </button>
+                </div>
+
+              </form>
             </div>
 
           </div>
         </div>
       </section>
     );
-  }
 
   return (
     <>
