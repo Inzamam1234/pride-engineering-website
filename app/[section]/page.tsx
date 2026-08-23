@@ -3,49 +3,60 @@ import SmoothScroll from "@/components/SmoothScroll";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ArrowUpRight } from "lucide-react";
+import RefrigerationShowcase from "@/components/RefrigerationShowcase";
+import ColdRoomsShowcase from "@/components/ColdRoomsShowcase";
+import KitchenShowcase from "@/components/KitchenShowcase";
+import BMSShowcase from "@/components/BMSShowcase";
 
 const pages = {
   about: {
     eyebrow: "About Pride Engineering",
     title: "Engineering reliability into the way you operate.",
     intro: "We design, install and maintain critical systems for facilities where uptime, safety and performance cannot be left to chance.",
-    image: "https://images.unsplash.com/photo-1565610222536-ef125c59da2e?auto=format&fit=crop&w=2200&q=88",
+    image: "/about.png",
     points: ["One accountable engineering partner", "Designs built around site conditions", "Support beyond commissioning"],
   },
   expertise: {
     eyebrow: "Our expertise",
     title: "Technical depth across every critical degree.",
     intro: "From cold rooms and industrial refrigeration to commercial kitchens and building management systems, our teams connect the details into one dependable whole.",
-    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=2200&q=88",
+    image: "/expertise.png",
     points: ["Commercial & industrial refrigeration", "Cold chain infrastructure", "Commercial kitchen engineering"],
   },
   process: {
     eyebrow: "The Pride process",
     title: "A practical route from first survey to long-term support.",
     intro: "We start with the operating reality on site, develop a solution that fits, and stay accountable for how it performs after handover.",
-    image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=2200&q=88",
+    image: "/process.png",
     points: ["Consult and assess", "Engineer and install", "Commission, monitor and maintain"],
   },
   projects: {
-    eyebrow: "Selected projects",
-    title: "Solutions built for the environments that keep moving.",
-    intro: "Explore a selection of refrigeration, kitchen and monitoring environments designed around operational pressure, energy efficiency and reliable control.",
-    image: "https://eng.vlabonsgroup.com/wp-content/uploads/2019/12/ULO-i-DCA-hladnja%C4%8Da-2-1-1024x768.jpg",
-    points: ["Cold storage and freezer facilities", "Food distribution infrastructure", "Monitoring and controls integration"],
+    eyebrow: "Our projects",
+    title: "Engineering solutions built around the way your facility operates.",
+    intro: "A selection of refrigeration, cold storage, commercial kitchen and electromechanical projects designed for reliable performance and long-term operation.",
+    image: "YOUR_PROJECT_IMAGE_HERE",
+    points: [
+      "Cold storage and refrigeration facilities",
+      "Commercial kitchen installations",
+      "Industrial refrigeration systems",
+      "Electromechanical & BMS solutions",
+      "Monitoring and control systems",
+      "Maintenance and AMC services",
+    ],
   },
   contact: {
     eyebrow: "Start a conversation",
     title: "Let’s build reliability into every degree.",
     intro: "Tell us about your facility, operating conditions and goals. Our team will help define the engineering path forward.",
     image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=2200&q=88",
-    points: ["Dubai, United Arab Emirates", "+971 4 000 0000", "info@prideengineeringllc.com"],
+    points: ["Dubai, United Arab Emirates", "+968 98983622", "info@prideengs.com"],
   },
 } as const;
 
 const projectImages = [
-  "https://eng.vlabonsgroup.com/wp-content/uploads/2019/12/ULO-i-DCA-hladnja%C4%8Da-2-1-1024x768.jpg",
-  "https://www.compressorsunlimited.com/_next/image/?q=75&url=%2Fimages%2Frefrigeration-hero.png&w=3840",
-  "https://static.ticimax.cloud/cdn-cgi/image/width%3D-%2Cquality%3D99/61294/uploads/blog/endustriyel-mutfak-kurulumu-nasil-yapili-6765.jpg",
+  "/cold-storage.",
+  "/industrial-refrigeration.PNG",
+  "/commercial.png",
 ];
 
 export function generateStaticParams() {
@@ -74,11 +85,408 @@ export default function SectionPage({ params }: { params: { section: string } })
 }
 
 function SectionContent({ section, page }: { section: string; page: (typeof pages)[keyof typeof pages] }) {
-  if (section === "expertise") return <section className="mx-auto max-w-[1440px] px-6 py-24 lg:px-12 lg:py-36"><div className="mb-20 grid gap-8 lg:grid-cols-12"><p className="font-display text-3xl font-medium leading-[1.34] lg:col-span-7 lg:text-5xl">{page.intro}</p><p className="text-base leading-relaxed text-navy/60 lg:col-span-3 lg:col-start-10">Four disciplines, one accountable team. Every decision is built around reliability, serviceability and long-term efficiency.</p></div><div className="grid gap-3 md:grid-cols-2"><Feature title="Refrigeration" text="Cold rooms, freezer rooms and industrial systems." image={projectImages[0]} /><Feature title="Cold chain" text="Temperature integrity from storage to delivery." image={projectImages[1]} /><Feature title="Kitchen engineering" text="Workflows, ventilation and equipment built to serve." image={projectImages[2]} /><Feature title="Monitoring & BMS" text="Controls that keep every degree accountable." image={page.image} /></div></section>;
+  if (section === "expertise") {
+    return (
+      <section className="bg-[#fffefc]">
+        {/* Expertise introduction */}
+        <div className="mx-auto max-w-[1440px] px-6 py-24 lg:px-12 lg:py-36">
+          <div className="mb-20 grid gap-8 lg:grid-cols-12">
+            <div className="lg:col-span-8">
+              <p className="mb-6 text-[11px] font-semibold uppercase tracking-widest2 text-gold">
+                Our Expertise
+              </p>
+
+              <h2 className="font-display text-4xl font-medium leading-[1.08] tracking-tight sm:text-5xl lg:text-7xl">
+                Engineering systems built
+                <br />
+                around your operation.
+              </h2>
+            </div>
+
+            <p className="max-w-md leading-relaxed text-navy/60 lg:col-span-4 lg:justify-self-end">
+              From refrigeration and cold storage to commercial kitchens and
+              intelligent building systems, Pride Engineering delivers
+              dependable solutions designed around real operating conditions.
+            </p>
+          </div>
+        </div>
+
+        {/* 01 — Refrigeration */}
+        <div id="refrigeration" className="scroll-mt-24">
+          <RefrigerationShowcase />
+        </div>
+
+        {/* 02 — Cold Rooms & Freezers */}
+        <div id="cold-rooms" className="scroll-mt-24">
+          <ColdRoomsShowcase />
+        </div>
+
+        {/* 03 — Commercial Kitchen */}
+        <div id="commercial-kitchen" className="scroll-mt-24">
+          <KitchenShowcase />
+        </div>
+
+        {/* 04 — Electromechanical & BMS */}
+        <div id="electromechanical-bms" className="scroll-mt-24">
+          <BMSShowcase />
+        </div>
+      </section>
+    );
+  }
   if (section === "process") return <section className="bg-navy text-white"><div className="mx-auto grid max-w-[1440px] gap-16 px-6 py-24 lg:grid-cols-12 lg:px-12 lg:py-36"><p className="font-display text-3xl font-medium leading-[1.34] text-white/80 lg:col-span-5 lg:text-5xl">{page.intro}</p><ol className="lg:col-span-6 lg:col-start-7">{page.points.map((point, index) => <li key={point} className="group flex items-center gap-6 border-t border-white/20 py-8 last:border-b"><span className="font-display text-5xl text-gold/70">0{index + 1}</span><span className="font-display text-2xl font-medium transition-transform duration-500 group-hover:translate-x-3">{point}</span><ArrowUpRight className="ml-auto text-gold" size={20} /></li>)}</ol></div></section>;
-  if (section === "projects") return <section className="px-6 py-24 lg:px-12 lg:py-36"><div className="mx-auto max-w-[1440px]"><p className="mb-16 max-w-3xl font-display text-3xl font-medium leading-[1.34] lg:text-5xl">{page.intro}</p><div className="grid gap-3 md:grid-cols-3">{projectImages.map((image, index) => <article key={image} className="group"><div className="aspect-[4/5] overflow-hidden bg-navy"><div className="h-full bg-cover bg-center transition-transform duration-[1200ms] group-hover:scale-105" style={{ backgroundImage: `url('${image}')` }} /></div><p className="mt-4 font-display text-xl">{["Cold storage", "Distribution hub", "Commercial kitchen"][index]}</p></article>)}</div></div></section>;
-  if (section === "contact") return <section className="relative min-h-screen overflow-hidden bg-navy text-white"><div className="absolute inset-0 bg-cover bg-center opacity-40" style={{ backgroundImage: `url('${page.image}')` }} /><div className="relative mx-auto flex min-h-screen max-w-[1440px] items-end px-6 py-16 lg:px-12 lg:py-24"><div className="grid w-full gap-12 lg:grid-cols-12"><p className="font-display text-4xl font-medium leading-[1.18] lg:col-span-8 lg:text-7xl">{page.intro}</p><div className="lg:col-span-3 lg:col-start-10"><a href="mailto:info@prideengineeringllc.com" className="inline-flex items-center gap-3 rounded-full bg-gold px-6 py-4 text-xs font-semibold uppercase tracking-[.16em]">Email our team <ArrowUpRight size={16} /></a><p className="mt-8 text-sm leading-loose text-white/70">{page.points.join("\n")}</p></div></div></div></section>;
-  return <><section className="mx-auto grid max-w-[1440px] gap-16 px-6 py-24 lg:grid-cols-12 lg:px-12 lg:py-36"><div className="lg:col-span-4"><p className="font-display text-2xl font-medium leading-[1.4]">{page.points[0]}</p><div className="mt-10 aspect-square bg-cover bg-center" style={{ backgroundImage: `url('${page.image}')` }} /></div><p className="font-display text-3xl font-medium leading-[1.38] tracking-[-.025em] lg:col-span-7 lg:col-start-6 lg:text-5xl">{page.intro}</p></section><section className="mx-auto max-w-[1440px] px-6 pb-24 lg:px-12 lg:pb-36"><div className="relative aspect-[16/8] overflow-hidden bg-navy"><div className="absolute inset-0 bg-cover bg-center transition-transform duration-[1600ms] hover:scale-[1.04]" style={{ backgroundImage: `url('${page.image}')` }} /></div></section></>;
+  if (section === "projects") return (
+    <section className="px-6 py-24 lg:px-12 lg:py-36">
+      <div className="mx-auto max-w-[1440px]">
+        <p className="mb-16 max-w-3xl font-display text-3xl font-medium leading-[1.34] lg:text-5xl">
+          {page.intro}
+        </p>
+
+        <div className="grid gap-3 md:grid-cols-3">
+          {projectImages.map((image, index) => (
+            <article key={image} className="group">
+              <div className="aspect-[4/5] overflow-hidden bg-navy">
+                <div
+                  className="h-full bg-cover bg-center transition-transform duration-[1200ms] group-hover:scale-105"
+                  style={{ backgroundImage: `url('${image}')` }}
+                />
+              </div>
+
+              <p className="mt-4 font-display text-xl">
+                {[
+                  "Cold Storage Facility",
+                  "Industrial Refrigeration",
+                  "Commercial Kitchen",
+                ][index]}
+              </p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+  if (section === "contact") {
+    return (
+      <section className="relative min-h-screen overflow-hidden bg-navy text-white">
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-40"
+          style={{ backgroundImage: `url('${page.image}')` }}
+        />
+
+        <div className="relative mx-auto flex min-h-screen max-w-[1440px] items-end px-6 py-16 lg:px-12 lg:py-24">
+          <div className="grid w-full gap-12 lg:grid-cols-12">
+
+            <p className="font-display text-4xl font-medium leading-[1.18] lg:col-span-8 lg:text-7xl">
+              {page.intro}
+            </p>
+
+            <div className="lg:col-span-3 lg:col-start-10">
+              <a
+                href="mailto:info@prideengs.com"
+                className="inline-flex items-center gap-3 rounded-full bg-gold px-6 py-4 text-xs font-semibold uppercase tracking-[.16em]"
+              >
+                Email our team
+                <ArrowUpRight size={16} />
+              </a>
+
+              <p className="mt-8 whitespace-pre-line text-sm leading-loose text-white/70">
+                {page.points.join("\n")}
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  return (
+    <>
+      {/* ABOUT INTRO */}
+      <section className="border-b border-line bg-[#fffefc]">
+        <div className="mx-auto max-w-[1440px] px-6 py-24 lg:px-12 lg:py-36">
+
+          <div className="grid gap-14 lg:grid-cols-12 lg:items-start">
+
+            <div className="lg:col-span-4">
+              <p className="mb-6 text-[11px] font-semibold uppercase tracking-[0.25em] text-gold">
+                Who We Are
+              </p>
+
+              <p className="max-w-sm text-lg font-medium leading-relaxed text-navy/75 lg:text-xl">
+                Pride Engineering Services is an engineering partner focused
+                on reliable refrigeration, cold storage, commercial kitchen
+                and electromechanical solutions.
+              </p>
+            </div>
+
+            <div className="lg:col-span-7 lg:col-start-6">
+              <p className="font-display text-3xl font-medium leading-[1.35] tracking-[-0.025em] sm:text-4xl lg:text-5xl">
+                We design, install, commission and support systems around the
+                real requirements of each facility.
+              </p>
+
+              <p className="mt-10 max-w-3xl text-base leading-relaxed text-navy/60 lg:text-lg">
+                Our approach is practical and engineering-led. We consider the
+                operating environment, equipment requirements, workflow and
+                long-term service needs before developing a solution.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* WHAT WE DO */}
+      <section className="bg-navy text-white">
+        <div className="mx-auto max-w-[1440px] px-6 py-24 lg:px-12 lg:py-36">
+
+          <div className="mb-20 grid gap-10 lg:grid-cols-12">
+
+            <div className="lg:col-span-7">
+              <p className="mb-6 text-[11px] font-semibold uppercase tracking-[0.25em] text-gold">
+                What We Do
+              </p>
+
+              <h2 className="font-display text-4xl font-medium leading-[1.08] tracking-[-0.04em] sm:text-5xl lg:text-7xl">
+                Four engineering disciplines.
+                <br />
+                One accountable partner.
+              </h2>
+            </div>
+
+            <p className="max-w-md leading-relaxed text-white/60 lg:col-span-4 lg:col-start-9 lg:justify-self-end">
+              From refrigeration and cold storage to commercial kitchens and
+              intelligent building systems, our capabilities work together to
+              support complete facility requirements.
+            </p>
+
+          </div>
+
+          <div className="grid border-t border-white/15 md:grid-cols-2 lg:grid-cols-4">
+
+            {[
+              {
+                number: "01",
+                title: "Refrigeration Systems",
+                text: "Commercial, industrial, medical and display refrigeration, including ice plant solutions.",
+              },
+              {
+                number: "02",
+                title: "Cold Rooms & Freezer Systems",
+                text: "Cold rooms, cold storage, blast chillers, blast freezers and freezer systems.",
+              },
+              {
+                number: "03",
+                title: "Commercial Kitchen Engineering",
+                text: "Kitchen equipment, commercial ovens, cooking ranges, boilers and ventilation.",
+              },
+              {
+                number: "04",
+                title: "Electromechanical & BMS",
+                text: "BMS, monitoring, electrical works, motor services, troubleshooting and maintenance.",
+              },
+            ].map((item) => (
+              <article
+                key={item.number}
+                className="group border-b border-white/15 py-10 md:px-7 lg:border-b-0 lg:border-r lg:first:pl-0 lg:last:border-r-0 lg:last:pr-0"
+              >
+                <span className="font-display text-4xl font-medium text-gold/70">
+                  {item.number}
+                </span>
+
+                <h3 className="mt-10 font-display text-2xl font-medium leading-tight">
+                  {item.title}
+                </h3>
+
+                <p className="mt-5 text-sm leading-relaxed text-white/60">
+                  {item.text}
+                </p>
+
+                <span className="mt-8 block h-px w-full origin-left scale-x-0 bg-gold transition-transform duration-700 group-hover:scale-x-100" />
+              </article>
+            ))}
+
+          </div>
+        </div>
+      </section>
+
+      {/* OUR APPROACH */}
+      <section className="border-b border-line bg-[#fffefc]">
+        <div className="mx-auto max-w-[1440px] px-6 py-24 lg:px-12 lg:py-36">
+
+          <div className="grid gap-14 lg:grid-cols-12">
+
+            <div className="lg:col-span-5">
+              <p className="mb-6 text-[11px] font-semibold uppercase tracking-[0.25em] text-gold">
+                Our Approach
+              </p>
+
+              <h2 className="font-display text-4xl font-medium leading-[1.08] tracking-[-0.04em] sm:text-5xl lg:text-6xl">
+                From first survey
+                <br />
+                to long-term support.
+              </h2>
+            </div>
+
+            <div className="lg:col-span-6 lg:col-start-7">
+
+              {[
+                {
+                  number: "01",
+                  title: "Survey & Assess",
+                  text: "Understand the facility, operating conditions, capacity requirements and project objectives.",
+                },
+                {
+                  number: "02",
+                  title: "Engineer & Design",
+                  text: "Develop a practical solution around performance, serviceability and the specific needs of the operation.",
+                },
+                {
+                  number: "03",
+                  title: "Install & Commission",
+                  text: "Deliver the system with careful installation, testing and commissioning before handover.",
+                },
+                {
+                  number: "04",
+                  title: "Maintain & Support",
+                  text: "Continue supporting the system through monitoring, troubleshooting, maintenance and AMC services.",
+                },
+              ].map((item) => (
+                <div
+                  key={item.number}
+                  className="group flex gap-6 border-t border-line py-8 last:border-b"
+                >
+                  <span className="font-display text-4xl font-medium text-gold">
+                    {item.number}
+                  </span>
+
+                  <div>
+                    <h3 className="font-display text-2xl font-medium">
+                      {item.title}
+                    </h3>
+
+                    <p className="mt-3 max-w-xl text-sm leading-relaxed text-navy/60">
+                      {item.text}
+                    </p>
+                  </div>
+
+                  <ArrowUpRight
+                    size={20}
+                    className="ml-auto shrink-0 text-gold transition-transform duration-500 group-hover:translate-x-1"
+                  />
+                </div>
+              ))}
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* WHY PRIDE */}
+      <section className="bg-[#fffefc]">
+        <div className="mx-auto max-w-[1440px] px-6 py-24 lg:px-12 lg:py-36">
+
+          <div className="grid gap-14 lg:grid-cols-12">
+
+            <div className="lg:col-span-4">
+              <p className="mb-6 text-[11px] font-semibold uppercase tracking-[0.25em] text-gold">
+                Why Pride Engineering
+              </p>
+
+              <p className="font-display text-3xl font-medium leading-[1.3] lg:text-4xl">
+                Engineering is not only about installing equipment. It is about
+                making the entire system work together.
+              </p>
+            </div>
+
+            <div className="grid gap-10 sm:grid-cols-2 lg:col-span-7 lg:col-start-6">
+
+              {[
+                {
+                  number: "01",
+                  title: "Reliability",
+                  text: "Systems designed to perform consistently under demanding operating conditions.",
+                },
+                {
+                  number: "02",
+                  title: "Performance",
+                  text: "Solutions developed around efficiency, capacity and the real requirements of the facility.",
+                },
+                {
+                  number: "03",
+                  title: "Technical Support",
+                  text: "Ongoing troubleshooting, monitoring, maintenance and AMC support after installation.",
+                },
+                {
+                  number: "04",
+                  title: "Accountability",
+                  text: "One engineering partner coordinating multiple disciplines across the project lifecycle.",
+                },
+              ].map((item) => (
+                <article
+                  key={item.number}
+                  className="border-t border-line pt-7"
+                >
+                  <span className="font-display text-3xl text-gold">
+                    {item.number}
+                  </span>
+
+                  <h3 className="mt-6 font-display text-2xl font-medium">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-3 text-sm leading-relaxed text-navy/60">
+                    {item.text}
+                  </p>
+                </article>
+              ))}
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-navy text-white">
+        <div className="mx-auto max-w-[1440px] px-6 py-24 lg:px-12 lg:py-32">
+
+          <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
+
+            <div className="lg:col-span-8">
+              <p className="mb-6 text-[11px] font-semibold uppercase tracking-[0.25em] text-gold">
+                Start a conversation
+              </p>
+
+              <h2 className="font-display text-4xl font-medium leading-[1.08] tracking-[-0.04em] sm:text-5xl lg:text-7xl">
+                Let's build the right system
+                <br />
+                for your facility.
+              </h2>
+            </div>
+
+            <div className="lg:col-span-3 lg:col-start-10">
+              <p className="mb-7 text-sm leading-relaxed text-white/60">
+                Tell us about your facility, requirements and operating
+                conditions. We'll help define the right engineering path.
+              </p>
+
+              <a
+                href="/contact"
+                className="group inline-flex items-center gap-3 rounded-full bg-gold px-6 py-4 text-xs font-semibold uppercase tracking-[0.16em] text-white"
+              >
+                Contact our team
+                <ArrowUpRight
+                  size={16}
+                  className="transition-transform duration-500 group-hover:translate-x-1"
+                />
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </>
+  );
 }
 
 function Feature({ title, text, image }: { title: string; text: string; image: string }) {
