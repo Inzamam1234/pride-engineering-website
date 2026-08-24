@@ -61,18 +61,20 @@ export default function RefrigerationShowcase() {
                                 />
                             </div>
 
+                            {/* Number - TOP RIGHT */}
+                            <span className="absolute right-6 top-6 z-20 font-display text-6xl font-bold text-white/20 transition-colors duration-500 group-hover:text-gold/70">
+                                0{index + 1}
+                            </span>
+
+                            {/* Bottom text overlay */}
                             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy/90 to-transparent p-6 pt-20">
-                                <div className="absolute inset-x-0 bottom-0 p-7">
+                                <div className="p-1">
                                     <h3 className="font-display text-2xl font-medium leading-tight text-white">
                                         {item.title}
                                     </h3>
 
                                     <span className="mt-5 block h-px w-full origin-left scale-x-0 bg-gold transition-transform duration-700 group-hover:scale-x-100" />
                                 </div>
-
-                                <span className="absolute right-6 top-6 font-display text-6xl font-bold text-white/20 transition-colors duration-500 group-hover:text-gold/70">
-                                    0{index + 1}
-                                </span>
                             </div>
                         </div>
                     ))}
