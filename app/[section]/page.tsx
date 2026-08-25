@@ -7,6 +7,7 @@ import RefrigerationShowcase from "@/components/RefrigerationShowcase";
 import ColdRoomsShowcase from "@/components/ColdRoomsShowcase";
 import KitchenShowcase from "@/components/KitchenShowcase";
 import BMSShowcase from "@/components/BMSShowcase";
+import ContactForm from "@/components/ContactForm";
 
 const pages = {
   about: {
@@ -255,9 +256,12 @@ function SectionContent({ section, page }: { section: string; page: (typeof page
                     Phone
                   </p>
 
-                  <p className="mt-2 text-base text-navy/80">
+                  <a
+                    href="tel:+96898983622"
+                    className="mt-2 inline-block text-base text-navy/80 transition-colors hover:text-gold"
+                  >
                     +968 98983622
-                  </p>
+                  </a>
                 </div>
 
                 {/* Email */}
@@ -279,99 +283,7 @@ function SectionContent({ section, page }: { section: string; page: (typeof page
 
             {/* RIGHT — Contact Form */}
             <div className="lg:col-span-8">
-
-              <form className="grid grid-cols-1 gap-x-10 gap-y-10 md:grid-cols-2">
-
-                {/* First Name */}
-                <div>
-                  <label className="text-sm font-medium text-navy">
-                    First name*
-                  </label>
-
-                  <input
-                    type="text"
-                    placeholder="Name"
-                    className="mt-4 w-full border-0 border-b border-navy/20 bg-transparent px-0 pb-4 font-display text-2xl outline-none placeholder:text-navy/20 focus:border-gold"
-                  />
-                </div>
-
-                {/* Surname */}
-                <div>
-                  <label className="text-sm font-medium text-navy">
-                    Surname*
-                  </label>
-
-                  <input
-                    type="text"
-                    placeholder="Family name"
-                    className="mt-4 w-full border-0 border-b border-navy/20 bg-transparent px-0 pb-4 font-display text-2xl outline-none placeholder:text-navy/20 focus:border-gold"
-                  />
-                </div>
-
-                {/* Email */}
-                <div>
-                  <label className="text-sm font-medium text-navy">
-                    Email*
-                  </label>
-
-                  <input
-                    type="email"
-                    placeholder="your@email.com"
-                    className="mt-4 w-full border-0 border-b border-navy/20 bg-transparent px-0 pb-4 font-display text-2xl outline-none placeholder:text-navy/20 focus:border-gold"
-                  />
-                </div>
-
-                {/* Company */}
-                <div>
-                  <label className="text-sm font-medium text-navy">
-                    Company
-                  </label>
-
-                  <input
-                    type="text"
-                    placeholder="Company name"
-                    className="mt-4 w-full border-0 border-b border-navy/20 bg-transparent px-0 pb-4 font-display text-2xl outline-none placeholder:text-navy/20 focus:border-gold"
-                  />
-                </div>
-
-                {/* Subject */}
-                <div className="md:col-span-2">
-                  <label className="text-sm font-medium text-navy">
-                    Subject
-                  </label>
-
-                  <input
-                    type="text"
-                    placeholder="e.g. Refrigeration project"
-                    className="mt-4 w-full border-0 border-b border-navy/20 bg-transparent px-0 pb-4 font-display text-2xl outline-none placeholder:text-navy/20 focus:border-gold"
-                  />
-                </div>
-
-                {/* Message */}
-                <div className="md:col-span-2">
-                  <label className="text-sm font-medium text-navy">
-                    Message
-                  </label>
-
-                  <textarea
-                    rows={4}
-                    placeholder="Tell us about your project or requirements"
-                    className="mt-4 w-full resize-none border-0 border-b border-navy/20 bg-transparent px-0 pb-4 font-display text-2xl outline-none placeholder:text-navy/20 focus:border-gold"
-                  />
-                </div>
-
-                {/* Submit */}
-                <div className="md:col-span-2">
-                  <button
-                    type="submit"
-                    className="inline-flex items-center gap-4 bg-gold px-8 py-5 text-xs font-semibold uppercase tracking-[0.18em] text-white transition-all duration-300 hover:translate-y-[-2px] hover:bg-gold/90"
-                  >
-                    Send Message
-                    <ArrowUpRight size={16} />
-                  </button>
-                </div>
-
-              </form>
+              <ContactForm />
             </div>
 
           </div>
