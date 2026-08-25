@@ -34,6 +34,9 @@ export const metadata: Metadata = {
     "Commercial Kitchen Engineering",
     "Industrial Refrigeration",
   ],
+  icons: {
+    icon: "/pride-favicon.png",
+  },
   openGraph: {
     type: "website",
     url: siteUrl,
@@ -64,7 +67,7 @@ const jsonLd = {
       description:
         "Integrated engineering solutions for commercial refrigeration, cold rooms, cold chain and building management systems.",
       telephone: "+971-4-000-0000",
-      email: "info@prideengineeringllc.com",
+      email: " info@prideengs.com",
       address: {
         "@type": "PostalAddress",
         addressLocality: "Dubai",

@@ -10,24 +10,29 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const projects = [
   {
-    title: "Cold Storage Facility",
-    type: "Refrigeration",
-    image: "https://eng.vlabonsgroup.com/wp-content/uploads/2019/12/ULO-i-DCA-hladnja%C4%8Da-2-1-1024x768.jpg",
+    title: "Al Qurum Resort",
+    type: "HOSPITALITY",
+    image: "/project-al-qurum-resort.jpeg",
   },
   {
-    title: "Food Distribution Hub",
-    type: "Cold chain",
-    image: "https://www.compressorsunlimited.com/_next/image/?q=75&url=%2Fimages%2Frefrigeration-hero.png&w=3840",
+    title: "Grand Hypermarket",
+    type: "COMMERCIAL",
+    image: "project-grand-hypermarket.jpeg",
   },
   {
-    title: "Commercial Kitchen",
-    type: "Kitchen engineering",
-    image: "https://static.ticimax.cloud/cdn-cgi/image/width%3D-%2Cquality%3D99/61294/uploads/blog/endustriyel-mutfak-kurulumu-nasil-yapili-6765.jpg",
+    title: "Hospital Project",
+    type: "HEALTHCARE",
+    image: "/project-hospital.jpeg",
   },
   {
-    title: "Monitoring Control Room",
-    type: "BMS & controls",
-    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1600&q=85",
+    title: "City Centre Muscat",
+    type: "COMMERCIAL",
+    image: "/project-city-centre.jpeg",
+  },
+  {
+    title: "Cancer Care Hospital",
+    type: "HEALTHCARE",
+    image: "/project-cancer-hospital.jpeg",
   },
 ];
 

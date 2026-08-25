@@ -41,7 +41,7 @@ export default function Hero() {
     <h1 className="sr-only">Pride Engineering Services LLC — Engineering Reliability. Built for Performance.</h1>
     <p className="sr-only">We deliver integrated engineering solutions designed to keep critical systems operating safely, efficiently, and reliably.</p>
     <div data-hero-photo className="absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
-      <div data-hero-photo-image className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=2400&q=90')" }} />
+      <div data-hero-photo-image className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/main-image-pride.PNG')" }} />
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,25,43,.78)_0%,rgba(8,25,43,.42)_53%,rgba(8,25,43,.14)_100%)]" />
     </div>
     <div data-hero-wordmark aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-[3.5vw] z-10 flex select-none items-end justify-center overflow-hidden font-display text-[17.5vw] font-bold leading-[.72] tracking-[-0.075em] text-navy">

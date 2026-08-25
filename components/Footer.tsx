@@ -63,7 +63,7 @@ export default function Footer({ stacked = false }: { stacked?: boolean }) {
               system we build starts by understanding yours.
             </p>
             <a
-              href="mailto:info@prideengineeringllc.com"
+              href="mailto:info@prideengs.com"
               className="btn-fill group mt-10 inline-flex items-center gap-3 border border-gold bg-gold px-8 py-4 text-xs font-semibold uppercase tracking-[0.18em] text-white transition-colors duration-500 hover:text-gold"
             >
               Request Estimate
@@ -111,22 +111,22 @@ export default function Footer({ stacked = false }: { stacked?: boolean }) {
                   <span>
                     Pride Engineering Services LLC,
                     <br />
-                    Dubai, United Arab Emirates
+                    Ghala Industrial Area, Muscat, Oman 115
                   </span>
                 </li>
                 <li className="flex items-center gap-3">
                   <Phone size={16} className="shrink-0 text-gold" />
                   <a href="tel:+97140000000" className="transition-colors hover:text-white">
-                    +971 4 000 0000
+                    +968 98983622
                   </a>
                 </li>
                 <li className="flex items-center gap-3">
                   <Mail size={16} className="shrink-0 text-gold" />
                   <a
-                    href="mailto:info@prideengineeringllc.com"
+                    href="mailto:info@prideengs.com"
                     className="transition-colors hover:text-white"
                   >
-                    info@prideengineeringllc.com
+                    info@prideengs.com
                   </a>
                 </li>
               </ul>

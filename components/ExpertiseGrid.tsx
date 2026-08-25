@@ -19,48 +19,47 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 const cards = [
   {
     icon: Snowflake,
-    title: "Commercial & Industrial Refrigeration",
-    desc: "Cold rooms, display chillers and freezing systems engineered for duty cycles that never sleep.",
+    title: "Refrigeration Systems",
+    desc: "Commercial and industrial refrigeration engineered for demanding environments.",
     visual:
       "radial-gradient(120% 120% at 20% 0%, #2A5A8E 0%, #112A46 55%, #0B1D33 100%)",
-    image:
-      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1800&q=82",
+    image: "/commercial.png",
     pattern: "frost",
     span: "lg:col-span-12",
     aspect: "aspect-[16/9] lg:aspect-[21/8]",
   },
+
   {
-    icon: Truck,
-    title: "Cold Chain Solutions",
-    desc: "End-to-end temperature integrity from loading bay to last-mile delivery.",
+    icon: Snowflake,
+    title: "Cold Rooms & Freezer Systems",
+    desc: "Temperature-controlled spaces built to protect products, quality and performance.",
     visual:
       "linear-gradient(150deg, #14304F 0%, #112A46 60%, #0B1D33 100%)",
-    image:
-      "https://images.unsplash.com/photo-1494412685616-a5d310fbb07d?auto=format&fit=crop&w=1200&q=82",
+    image: "/Coldroom.png",
     pattern: "route",
     span: "lg:col-span-4",
     aspect: "aspect-[4/5] lg:aspect-[4/5]",
   },
+
   {
     icon: ChefHat,
     title: "Commercial Kitchen Engineering",
-    desc: "Ventilation, refrigeration and fabrication for kitchens built to serve.",
+    desc: "High-performance kitchen systems designed for demanding commercial operations.",
     visual:
       "radial-gradient(130% 130% at 80% 10%, rgba(184,139,66,0.85) 0%, #7A5B2E 45%, #112A46 100%)",
-    image:
-      "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=82",
+    image: "/kitchen.png",
     pattern: "grid",
     span: "lg:col-span-4",
     aspect: "aspect-[4/5]",
   },
+
   {
     icon: Cpu,
-    title: "Monitoring & BMS",
-    desc: "Real-time telemetry, alarms and controls that keep every degree accountable.",
+    title: "Electromechanical & BMS Services",
+    desc: "Intelligent monitoring, technical maintenance and engineering support that keeps systems running.",
     visual:
       "linear-gradient(160deg, #2A5A8E 0%, #16324E 55%, #0B1D33 100%)",
-    image:
-      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=82",
+    image: "/monitering.png",
     pattern: "circuit",
     span: "lg:col-span-4",
     aspect: "aspect-[4/5]",
@@ -193,7 +192,18 @@ export default function ExpertiseGrid() {
               data-exp-card
               className={`group relative overflow-hidden bg-navy ${card.span}`}
             >
-              <a href="#contact" className="block">
+              <a
+                href={
+                  i === 0
+                    ? "/expertise#refrigeration"
+                    : i === 1
+                      ? "/expertise#cold-rooms"
+                      : i === 2
+                        ? "/expertise#commercial-kitchen"
+                        : "/expertise#electromechanical-bms"
+                }
+                className="block"
+              >
                 <div className={`relative ${card.aspect} overflow-hidden`}>
                   <div
                     aria-hidden="true"
@@ -215,7 +225,7 @@ export default function ExpertiseGrid() {
 
                   <span
                     aria-hidden="true"
-                    className="absolute right-6 top-6 font-display text-6xl font-bold text-white/10 transition-colors duration-700 group-hover:text-white/20 lg:text-7xl"
+                    className="absolute right-6 top-6 font-display text-6xl font-bold text-white/10 transition-colors duration-700 group-hover:text-gold lg:text-7xl"
                   >
                     0{i + 1}
                   </span>

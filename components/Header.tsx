@@ -8,12 +8,23 @@ const links = [
   { label: "About", href: "/about" },
   { label: "Expertise", href: "/expertise" },
   { label: "Process", href: "/process" },
-  { label: "Projects", href: "/projects" },
-  { label: "Contact", href: "/contact" },
+  { label: "Projects", href: "/projects" }
 ];
 
 export function LogoMark({ dark = false }: { dark?: boolean }) {
-  return <Link href="/" className={`font-display text-xl font-bold tracking-[-0.055em] ${dark ? "text-white" : "text-navy"}`} aria-label="Pride Engineering Services LLC — Home">PRIDE<span className="text-gold">.</span></Link>;
+  return (
+    <Link
+      href="/"
+      className="inline-flex items-center"
+      aria-label="Pride Engineering Services LLC — Home"
+    >
+      <img
+        src={dark ? "/pride-logo-gold-final.png" : "/pridelogo-removebg.png"}
+        alt="Pride Engineering Services"
+        className="h-20 w-auto object-contain"
+      />
+    </Link>
+  );
 }
 
 export default function Header({ alwaysVisible = false }: { alwaysVisible?: boolean }) {
@@ -52,7 +63,6 @@ export default function Header({ alwaysVisible = false }: { alwaysVisible?: bool
         {links.map((link) => <Link key={link.href} href={link.href} className="nav-link whitespace-nowrap">{link.label}</Link>)}
       </nav>
       <div className={`ml-auto hidden items-center gap-6 lg:flex ${foreground}`}>
-        <span className="text-[11px] font-medium uppercase tracking-[.18em]">EN</span>
         <Link href="/contact" className="group inline-flex items-center gap-3 text-[12px] font-semibold"><span>Contact</span><span className="grid h-8 w-8 place-items-center rounded-full bg-gold text-white transition-transform duration-500 group-hover:translate-x-1"><ArrowUpRight size={15} /></span></Link>
       </div>
       <button type="button" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} onClick={() => setOpen((value) => !value)} className={`ml-auto lg:hidden ${foreground}`}>{open ? <X size={25} /> : <Menu size={25} />}</button>

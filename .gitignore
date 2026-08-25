@@ -11,4 +11,7 @@ test-results/
 playwright-report/
 blob-report/
 playwright/.cache/
+# Ignore PNG files outside public/
 *.png
+!public/**/*.png
+!public/**/*.PNG
