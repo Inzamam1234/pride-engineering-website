@@ -19,8 +19,8 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 const cards = [
   {
     icon: Snowflake,
-    title: "Refrigeration Systems",
-    desc: "Commercial and industrial refrigeration engineered for demanding environments.",
+    title: "Commercial & Industrial Refrigeration",
+    desc: "Commercial and industrial refrigeration systems engineered for reliable temperature control and demanding operating environments in Oman.",
     visual:
       "radial-gradient(120% 120% at 20% 0%, #2A5A8E 0%, #112A46 55%, #0B1D33 100%)",
     image: "/commercial.png",
@@ -31,8 +31,8 @@ const cards = [
 
   {
     icon: Snowflake,
-    title: "Cold Rooms & Freezer Systems",
-    desc: "Temperature-controlled spaces built to protect products, quality and performance.",
+    title: "Cold Rooms, Cold Storage & Freezer Systems",
+    desc: "Temperature-controlled cold rooms, cold storage and freezer systems designed to protect products, maintain quality and support reliable operations.",
     visual:
       "linear-gradient(150deg, #14304F 0%, #112A46 60%, #0B1D33 100%)",
     image: "/Coldroom.png",
@@ -43,8 +43,8 @@ const cards = [
 
   {
     icon: ChefHat,
-    title: "Commercial Kitchen Engineering",
-    desc: "High-performance kitchen systems designed for demanding commercial operations.",
+    title: "Commercial Kitchen Equipment & Engineering",
+    desc: "High-performance commercial kitchen equipment and engineering systems designed for demanding hospitality, catering and food-service operations.",
     visual:
       "radial-gradient(130% 130% at 80% 10%, rgba(184,139,66,0.85) 0%, #7A5B2E 45%, #112A46 100%)",
     image: "/kitchen.png",
@@ -56,7 +56,7 @@ const cards = [
   {
     icon: Cpu,
     title: "Electromechanical & BMS Services",
-    desc: "Intelligent monitoring, technical maintenance and engineering support that keeps systems running.",
+    desc: "Building management systems, intelligent monitoring, technical maintenance and electromechanical engineering support that keeps critical systems running.",
     visual:
       "linear-gradient(160deg, #2A5A8E 0%, #16324E 55%, #0B1D33 100%)",
     image: "/monitering.png",

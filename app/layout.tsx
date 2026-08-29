@@ -14,46 +14,79 @@ const inter = Inter({
   display: "swap",
 });
 
-const siteUrl = "https://www.prideengineeringllc.com";
+const siteUrl = "https://www.prideengs.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+
   title: {
     default:
-      "Pride Engineering Services LLC | Commercial Refrigeration & Cold Room Engineering",
+      "Pride Engineering Services LLC | Refrigeration & Cold Room Engineering Oman",
     template: "%s | Pride Engineering Services LLC",
   },
+
   description:
-    "Pride Engineering Services LLC delivers integrated commercial refrigeration, cold room engineering, cold chain solutions and BMS systems engineered for reliability, efficiency and uninterrupted operation.",
+    "Pride Engineering Services LLC provides commercial and industrial refrigeration, cold rooms, cold storage, commercial kitchen engineering, electromechanical and BMS solutions in Oman.",
+
   keywords: [
-    "Commercial Refrigeration",
-    "Cold Room Engineering",
-    "Cold Chain Solutions",
-    "BMS Systems",
-    "Building Management Systems",
-    "Commercial Kitchen Engineering",
-    "Industrial Refrigeration",
+    "Pride Engineering Services LLC",
+    "Pride Engineering Oman",
+    "engineering company Oman",
+    "engineering services Muscat",
+    "commercial refrigeration Oman",
+    "industrial refrigeration Oman",
+    "refrigeration company Oman",
+    "cold rooms Oman",
+    "cold room installation Oman",
+    "cold storage Oman",
+    "cold storage solutions Oman",
+    "freezer systems Oman",
+    "commercial kitchen engineering Oman",
+    "commercial kitchen equipment Oman",
+    "BMS services Oman",
+    "building management systems Oman",
+    "electromechanical services Oman",
+    "refrigeration maintenance Oman",
+    "AMC services Oman",
   ],
+
+  alternates: {
+    canonical: siteUrl,
+  },
+
   icons: {
     icon: "/pride-favicon.png",
   },
+
   openGraph: {
     type: "website",
     url: siteUrl,
     siteName: "Pride Engineering Services LLC",
     title:
-      "Pride Engineering Services LLC | Commercial Refrigeration & Cold Room Engineering",
+      "Pride Engineering Services LLC | Refrigeration & Cold Room Engineering Oman",
     description:
-      "Integrated engineering solutions that keep critical systems operating safely, efficiently and reliably — from commercial refrigeration to BMS integration.",
-    locale: "en_US",
+      "Commercial and industrial refrigeration, cold rooms, cold storage, commercial kitchen engineering, electromechanical and BMS solutions in Oman.",
+    locale: "en_OM",
   },
+
   twitter: {
     card: "summary_large_image",
     title: "Pride Engineering Services LLC",
     description:
-      "Commercial refrigeration, cold room engineering and BMS systems built for performance.",
+      "Commercial refrigeration, cold rooms, cold storage, commercial kitchens and BMS engineering solutions in Oman.",
   },
-  robots: { index: true, follow: true },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
 };
 
 const jsonLd = {
@@ -65,41 +98,60 @@ const jsonLd = {
       name: "Pride Engineering Services LLC",
       url: siteUrl,
       description:
-        "Integrated engineering solutions for commercial refrigeration, cold rooms, cold chain and building management systems.",
-      telephone: "+971-4-000-0000",
-      email: " info@prideengs.com",
+        "Pride Engineering Services LLC provides commercial and industrial refrigeration, cold rooms, cold storage, commercial kitchen engineering, electromechanical and BMS solutions in Oman.",
+      telephone: "+96898983622",
+      email: "info@prideengs.com",
+
       address: {
         "@type": "PostalAddress",
-        addressLocality: "Dubai",
-        addressCountry: "AE",
+        streetAddress: "Ghala Industrial Area",
+        addressLocality: "Muscat",
+        addressCountry: "OM",
+        postalCode: "115",
       },
-      openingHoursSpecification: {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-        ],
-        opens: "08:00",
-        closes: "18:00",
+
+      areaServed: {
+        "@type": "Country",
+        name: "Oman",
       },
-      areaServed: "United Arab Emirates",
+
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: "+96898983622",
+        email: "info@prideengs.com",
+        contactType: "customer service",
+        areaServed: "OM",
+        availableLanguage: ["English"],
+      },
       priceRange: "$$",
     },
+
     {
       "@type": "EngineeringService",
-      "@id": `${siteUrl}/#service`,
+      "@id": `${siteUrl}/#engineering-service`,
       name: "Pride Engineering Services LLC",
-      provider: { "@id": `${siteUrl}/#business` },
-      areaServed: "United Arab Emirates",
+      url: siteUrl,
+      provider: {
+        "@id": `${siteUrl}/#business`,
+      },
+
+      areaServed: {
+        "@type": "Country",
+        name: "Oman",
+      },
+
       serviceType: [
-        "Commercial & Industrial Refrigeration",
-        "Cold Chain Solutions",
+        "Commercial Refrigeration",
+        "Industrial Refrigeration",
+        "Cold Room Engineering",
+        "Cold Storage Solutions",
+        "Freezer Systems",
         "Commercial Kitchen Engineering",
-        "Monitoring & BMS Integration",
+        "Electromechanical Services",
+        "Building Management Systems",
+        "BMS Services",
+        "Refrigeration Maintenance",
+        "AMC Services",
       ],
     },
   ],
@@ -113,8 +165,11 @@ export default function RootLayout({
       <body className="bg-base font-body text-navy antialiased">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd),
+          }}
         />
+
         {children}
       </body>
     </html>

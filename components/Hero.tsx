@@ -38,8 +38,16 @@ export default function Hero() {
   }, { scope });
 
   return <section ref={scope} id="top" className="relative flex min-h-screen overflow-hidden bg-[#fffefc] text-white">
-    <h1 className="sr-only">Pride Engineering Services LLC — Engineering Reliability. Built for Performance.</h1>
-    <p className="sr-only">We deliver integrated engineering solutions designed to keep critical systems operating safely, efficiently, and reliably.</p>
+    <h1 className="sr-only">
+      Commercial & Industrial Refrigeration, Cold Rooms & Engineering Solutions in Oman | Pride Engineering Services LLC
+    </h1>
+
+    <p className="sr-only">
+      Pride Engineering Services LLC provides commercial and industrial refrigeration,
+      cold rooms, cold storage, commercial kitchen systems and building management
+      solutions across Muscat and Oman.
+    </p>
+    
     <div data-hero-photo className="absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
       <div data-hero-photo-image className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/main-image-pride.PNG')" }} />
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,25,43,.78)_0%,rgba(8,25,43,.42)_53%,rgba(8,25,43,.14)_100%)]" />
