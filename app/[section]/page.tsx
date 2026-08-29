@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import SmoothScroll from "@/components/SmoothScroll";
 import Header from "@/components/Header";
@@ -62,6 +63,69 @@ const projectImages = [
 
 export function generateStaticParams() {
   return Object.keys(pages).map((section) => ({ section }));
+}
+const siteUrl = "https://www.prideengs.com";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { section: string };
+}): Promise<Metadata> {
+  const metadata: Record<string, Metadata> = {
+    about: {
+      title: "About Pride Engineering Services | Engineering Company Oman",
+      description:
+        "Learn about Pride Engineering Services LLC, an Oman-based engineering company providing refrigeration, cold storage, commercial kitchen, electromechanical and BMS solutions.",
+      alternates: {
+        canonical: `${siteUrl}/about`,
+      },
+    },
+
+    expertise: {
+      title:
+        "Commercial & Industrial Refrigeration, Cold Rooms & BMS | Oman",
+      description:
+        "Explore Pride Engineering's commercial and industrial refrigeration, cold rooms, cold storage, commercial kitchen, electromechanical and BMS engineering services in Oman.",
+      alternates: {
+        canonical: `${siteUrl}/expertise`,
+      },
+    },
+
+    process: {
+      title: "Engineering Design, Installation & Maintenance Process | Oman",
+      description:
+        "Pride Engineering Services delivers engineering solutions in Oman from site assessment and design through installation, commissioning, monitoring and maintenance.",
+      alternates: {
+        canonical: `${siteUrl}/process`,
+      },
+    },
+
+    projects: {
+      title: "Refrigeration, Cold Storage & Engineering Projects | Oman",
+      description:
+        "Explore refrigeration, cold storage, commercial kitchen and electromechanical engineering projects delivered by Pride Engineering Services in Oman.",
+      alternates: {
+        canonical: `${siteUrl}/projects`,
+      },
+    },
+
+    contact: {
+      title: "Contact Pride Engineering Services | Muscat, Oman",
+      description:
+        "Contact Pride Engineering Services LLC in Muscat, Oman for commercial refrigeration, cold rooms, cold storage, commercial kitchen, BMS and engineering solutions.",
+      alternates: {
+        canonical: `${siteUrl}/contact`,
+      },
+    },
+  };
+
+  return (
+    metadata[params.section] ?? {
+      title: "Pride Engineering Services LLC",
+      description:
+        "Engineering solutions for refrigeration, cold storage, commercial kitchens and BMS systems in Oman.",
+    }
+  );
 }
 
 export default function SectionPage({ params }: { params: { section: string } }) {
