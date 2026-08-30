@@ -9,7 +9,7 @@ The website presents the company's engineering expertise, refrigeration systems,
 ## 🌐 Live Website
 
 **Production:**  
-https://pride-engineering-website.vercel.app/
+https://prideengs.com
 
 ---
 
