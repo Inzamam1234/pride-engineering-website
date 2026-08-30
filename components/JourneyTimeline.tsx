@@ -27,22 +27,29 @@ export default function JourneyTimeline() {
   useGSAP(
     () => {
       const items = gsap.utils.toArray<HTMLElement>("[data-step]");
-      const contents = gsap.utils.toArray<HTMLElement>("[data-step-content]");
+      const contents =
+        gsap.utils.toArray<HTMLElement>("[data-step-content]");
+
       let current = -1;
 
       const setActive = (idx: number) => {
         if (idx === current) return;
+
         current = idx;
+
         items.forEach((el, i) => {
           el.classList.toggle("is-active", i <= idx);
           el.classList.toggle("is-current", i === idx);
         });
-        contents.forEach((el, i) =>
-          el.classList.toggle("is-active", i === idx)
-        );
+
+        contents.forEach((el, i) => {
+          el.classList.toggle("is-active", i === idx);
+        });
       };
 
       setActive(0);
+
+      const isMobile = window.matchMedia("(max-width: 1023px)").matches;
 
       gsap.fromTo(
         "[data-line-fill]",
@@ -52,15 +59,24 @@ export default function JourneyTimeline() {
           ease: "none",
           scrollTrigger: {
             trigger: scope.current,
+
+            // Keep the process section pinned.
             start: "top top",
-            end: "+=260%",
+
+            // 7 stages get roughly equal scroll space.
+            end: isMobile ? "+=420%" : "+=260%",
+
             pin: true,
             scrub: 1,
             anticipatePin: 1,
+
             onUpdate: (self) => {
-              setActive(
-                Math.min(steps.length - 1, Math.floor(self.progress * steps.length))
+              const index = Math.min(
+                steps.length - 1,
+                Math.floor(self.progress * steps.length)
               );
+
+              setActive(index);
             },
           },
         }
@@ -85,9 +101,24 @@ export default function JourneyTimeline() {
     <section
       ref={scope}
       id="process"
-      className="noise-overlay relative flex min-h-screen items-center overflow-hidden bg-navy text-white"
+      className="
+        noise-overlay
+        relative
+        flex
+        h-[100svh]
+        min-h-[100svh]
+        overflow-hidden
+        bg-navy
+        text-white
+        lg:h-auto
+        lg:min-h-screen
+      "
     >
-      <div className="blueprint-grid absolute inset-0" aria-hidden="true" />
+      <div
+        className="blueprint-grid absolute inset-0"
+        aria-hidden="true"
+      />
+
       <div
         aria-hidden="true"
         className="absolute inset-0"
@@ -97,73 +128,309 @@ export default function JourneyTimeline() {
         }}
       />
 
-      <div className="relative mx-auto grid w-full max-w-[1440px] gap-14 px-6 py-24 lg:grid-cols-2 lg:gap-24 lg:px-12">
-        <div data-journey-head>
-          <p className="mb-6 inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-widest2 text-gold">
+      <div
+        className="
+          relative
+          mx-auto
+          grid
+          w-full
+          max-w-[1440px]
+          grid-rows-[auto_1fr]
+          gap-5
+          px-6
+          py-6
+
+          sm:gap-6
+          sm:px-8
+          sm:py-8
+
+          lg:grid-cols-2
+          lg:grid-rows-none
+          lg:gap-24
+          lg:px-12
+          lg:py-24
+        "
+      >
+        {/* LEFT / TOP CONTENT */}
+        <div
+          data-journey-head
+          className="flex min-h-0 flex-col"
+        >
+          <p
+            className="
+              mb-3
+              inline-flex
+              items-center
+              gap-3
+              text-[10px]
+              font-semibold
+              uppercase
+              tracking-widest2
+              text-gold
+
+              sm:mb-4
+              sm:text-[11px]
+
+              lg:mb-6
+            "
+          >
             <Route size={14} />
             03 / The Process
           </p>
-          <h2 className="font-display text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl xl:text-6xl">
+
+          <h2
+            className="
+              max-w-[700px]
+              font-display
+              text-[2rem]
+              font-bold
+              leading-[1.02]
+              tracking-tight
+
+              sm:text-4xl
+
+              lg:text-5xl
+              xl:text-6xl
+            "
+          >
             From Installation to Long&#8209;Term Reliability
           </h2>
 
-          <div className="relative mt-14 h-[220px] sm:h-[240px] lg:h-[280px]">
+          {/* Active step content */}
+          <div
+            className="
+              relative
+              mt-4
+              h-[125px]
+
+              sm:mt-6
+              sm:h-[150px]
+
+              lg:mt-14
+              lg:h-[280px]
+            "
+          >
             {steps.map((step, i) => (
               <div
                 key={step.key}
                 data-step-content
-                className="step-content absolute inset-0 flex flex-col justify-center"
+                className="
+                  step-content
+                  absolute
+                  inset-0
+                  flex
+                  flex-col
+                  justify-center
+                "
               >
                 <span
                   aria-hidden="true"
-                  className="text-stroke-white font-display text-[7rem] font-bold leading-none lg:text-[9rem]"
+                  className="
+                    text-stroke-white
+                    font-display
+                    text-[5rem]
+                    font-bold
+                    leading-none
+
+                    sm:text-[6rem]
+
+                    lg:text-[9rem]
+                  "
                 >
                   0{i + 1}
                 </span>
-                <h3 className="mt-4 font-display text-3xl font-bold uppercase tracking-wide text-gold lg:text-4xl">
+
+                <h3
+                  className="
+                    mt-1
+                    font-display
+                    text-2xl
+                    font-bold
+                    uppercase
+                    tracking-wide
+                    text-gold
+
+                    sm:text-3xl
+
+                    lg:mt-4
+                    lg:text-4xl
+                  "
+                >
                   {step.key}
                 </h3>
-                <p className="mt-3 max-w-md text-lg leading-relaxed text-white/70">
+
+                <p
+                  className="
+                    mt-1
+                    max-w-md
+                    text-sm
+                    leading-relaxed
+                    text-white/70
+
+                    sm:text-base
+
+                    lg:mt-3
+                    lg:text-lg
+                  "
+                >
                   {step.desc}
                 </p>
               </div>
             ))}
           </div>
 
-          <p className="mt-10 hidden items-center gap-3 text-sm text-white/50 lg:flex">
+          <p
+            className="
+              mt-2
+              hidden
+              items-center
+              gap-3
+              text-sm
+              text-white/50
+
+              lg:flex
+            "
+          >
             <PhoneCall size={15} className="text-gold" />
             One accountable partner — from first survey to lifetime support.
           </p>
         </div>
 
-        <ol className="relative flex flex-col justify-center self-center">
+        {/* TIMELINE */}
+        <ol
+          className="
+            relative
+            flex
+            min-h-0
+            flex-col
+            justify-center
+            pb-1
+
+            lg:self-center
+          "
+        >
+          {/* Background line */}
           <span
             aria-hidden="true"
-            className="absolute bottom-5 left-[7px] top-5 w-px bg-white/15"
+            className="
+              absolute
+              bottom-3
+              left-[7px]
+              top-3
+              w-px
+              bg-white/15
+
+              lg:bottom-5
+              lg:top-5
+            "
           />
+
+          {/* Animated gold line */}
           <span
             data-line-fill
             aria-hidden="true"
-            className="absolute bottom-5 left-[7px] top-5 w-px origin-top bg-gold"
+            className="
+              absolute
+              bottom-3
+              left-[7px]
+              top-3
+              w-px
+              origin-top
+              bg-gold
+
+              lg:bottom-5
+              lg:top-5
+            "
           />
 
           {steps.map((step, i) => (
             <li
               key={step.key}
               data-step
-              className="journey-step relative flex items-center gap-6 py-4 pl-10 text-white/35"
+              className="
+                journey-step
+                relative
+                flex
+                min-h-0
+                flex-1
+                items-center
+                gap-4
+                pl-8
+                text-white/35
+
+                lg:flex-none
+                lg:gap-6
+                lg:py-4
+                lg:pl-10
+              "
             >
+              {/* Dot */}
               <span
                 aria-hidden="true"
-                className="journey-dot absolute left-0 h-[15px] w-[15px] rounded-full border border-white/25 bg-navy"
+                className="
+                  journey-dot
+                  absolute
+                  left-0
+                  h-[14px]
+                  w-[14px]
+                  rounded-full
+                  border
+                  border-white/25
+                  bg-navy
+
+                  lg:h-[15px]
+                  lg:w-[15px]
+                "
               />
-              <span className="w-8 shrink-0 font-display text-sm font-semibold text-current">
+
+              {/* Number */}
+              <span
+                className="
+                  w-7
+                  shrink-0
+                  font-display
+                  text-[11px]
+                  font-semibold
+                  text-current
+
+                  sm:text-xs
+
+                  lg:w-8
+                  lg:text-sm
+                "
+              >
                 0{i + 1}
               </span>
-              <span className="font-display text-xl font-bold uppercase tracking-wider lg:text-2xl">
+
+              {/* Step name */}
+              <span
+                className="
+                  font-display
+                  text-base
+                  font-bold
+                  uppercase
+                  tracking-wider
+
+                  sm:text-lg
+
+                  lg:text-2xl
+                "
+              >
                 {step.key}
               </span>
-              <span className="ml-auto hidden text-right text-sm text-current opacity-70 xl:block">
+
+              {/* Desktop description */}
+              <span
+                className="
+                  ml-auto
+                  hidden
+                  text-right
+                  text-sm
+                  text-current
+                  opacity-70
+                  xl:block
+                "
+              >
                 {step.desc}
               </span>
             </li>
