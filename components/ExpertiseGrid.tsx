@@ -27,7 +27,7 @@ const cards = [
     image: "/commercial.webp",
     pattern: "frost",
     span: "lg:col-span-12",
-    aspect: "aspect-[16/9] lg:aspect-[21/8]",
+    aspect: "aspect-[4/5] lg:aspect-[21/8]",
   },
 
   {

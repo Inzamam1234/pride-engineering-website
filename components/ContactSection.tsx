@@ -48,7 +48,7 @@ export default function ContactSection() {
               Contact us <ArrowUpRight size={16} className="transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1" />
             </a>
           </div>
-          <p className="hidden border-l border-white/35 pl-5 pt-2 text-sm leading-relaxed text-white/70 lg:block lg:col-span-2">Dubai, United Arab Emirates<br />+968 98983622</p>
+          <p className="hidden border-l border-white/35 pl-5 pt-2 text-sm leading-relaxed text-white/70 lg:block lg:col-span-2">Muscat, Oman<br />+968 98983622</p>
         </div>
       </div>
     </div>
