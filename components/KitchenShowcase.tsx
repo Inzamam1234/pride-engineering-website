@@ -1,28 +1,29 @@
 "use client";
+import Image from "next/image";
 
 const kitchenImages = [
     {
-        image: "/kitchen-equipment.PNG",
+        image: "/kitchen-equipment.webp",
         title: "Kitchen Equipment",
         number: "01",
     },
     {
-        image: "/commercial-ovens.PNG",
+        image: "/commercial-ovens.webp",
         title: "Commercial Ovens",
         number: "02",
     },
     {
-        image: "/cooking-ranges.PNG",
+        image: "/cooking-ranges.webp",
         title: "Cooking Ranges",
         number: "03",
     },
     {
-        image: "/boilers.PNG",
+        image: "/boilers.webp",
         title: "Boilers",
         number: "04",
     },
     {
-        image: "/ventilation.PNG",
+        image: "/ventilation.webp",
         title: "Ventilation",
         number: "05",
     },
@@ -62,13 +63,15 @@ export default function KitchenShowcase() {
                             key={item.number}
                             className="group relative overflow-hidden bg-navy"
                         >
-                            <div className="aspect-[4/3] overflow-hidden">
-                                <div
-                                    className="h-full w-full bg-cover bg-center transition-transform duration-[1200ms] ease-out group-hover:scale-105"
-                                    style={{
-                                        backgroundImage: `linear-gradient(rgba(8,25,43,.12), rgba(8,25,43,.72)), url('${item.image}')`,
-                                    }}
+                            <div className="aspect-[4/3] overflow-hidden relative">
+                                <Image
+                                    src={item.image}
+                                    alt={item.title}
+                                    fill
+                                    className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+                                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                 />
+                                <div className="absolute inset-0 bg-[linear-gradient(rgba(8,25,43,.12),rgba(8,25,43,.72))] pointer-events-none" />
                             </div>
 
                             {/* Number */}

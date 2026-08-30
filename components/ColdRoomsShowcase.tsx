@@ -1,32 +1,33 @@
 "use client";
+import Image from "next/image";
 
 const coldRoomImages = [
     {
-        image: "/cold-rooms.PNG",
+        image: "/cold-rooms.webp",
         title: "Cold Rooms",
     },
     {
-        image: "/cold-storage.PNG",
+        image: "/cold-storage.webp",
         title: "Cold Storage",
     },
     {
-        image: "/blast-chillers.PNG",
+        image: "/blast-chillers.webp",
         title: "Blast Chillers",
     },
     {
-        image: "/blast-freezers.PNG",
+        image: "/blast-freezers.webp",
         title: "Blast Freezers",
     },
     {
-        image: "/freezer-systems.PNG",
+        image: "/freezer-systems.webp",
         title: "Freezer Systems",
     },
     {
-        image: "/iceland-freezer.PNG",
+        image: "/iceland-freezer.webp",
         title: "IceLand Freezer",
     },
     {
-        image: "/flake-refrigerator.PNG",
+        image: "/flake-refrigerator.webp",
         title: "Flake Refrigerator",
     },
 ];
@@ -60,11 +61,13 @@ export default function ColdRoomsShowcase() {
                             key={item.image}
                             className="group relative overflow-hidden bg-navy"
                         >
-                            <div className="aspect-[4/3] overflow-hidden">
-                                <img
+                            <div className="aspect-[4/3] overflow-hidden relative">
+                                <Image
                                     src={item.image}
                                     alt={item.title}
-                                    className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                                    fill
+                                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                 />
                             </div>
 

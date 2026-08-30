@@ -4,6 +4,7 @@ import SmoothScroll from "@/components/SmoothScroll";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 import RefrigerationShowcase from "@/components/RefrigerationShowcase";
 import ColdRoomsShowcase from "@/components/ColdRoomsShowcase";
 import KitchenShowcase from "@/components/KitchenShowcase";
@@ -15,28 +16,28 @@ const pages = {
     eyebrow: "About Pride Engineering",
     title: "Engineering reliability into the way you operate.",
     intro: "We design, install and maintain critical systems for facilities where uptime, safety and performance cannot be left to chance.",
-    image: "/about.png",
+    image: "/about.webp",
     points: ["One accountable engineering partner", "Designs built around site conditions", "Support beyond commissioning"],
   },
   expertise: {
     eyebrow: "Our expertise",
     title: "Technical depth across every critical degree.",
     intro: "From cold rooms and industrial refrigeration to commercial kitchens and building management systems, our teams connect the details into one dependable whole.",
-    image: "/expertise.png",
+    image: "/expertise.webp",
     points: ["Commercial & industrial refrigeration", "Cold chain infrastructure", "Commercial kitchen engineering"],
   },
   process: {
     eyebrow: "The Pride process",
     title: "A practical route from first survey to long-term support.",
     intro: "We start with the operating reality on site, develop a solution that fits, and stay accountable for how it performs after handover.",
-    image: "/process.png",
+    image: "/process.webp",
     points: ["Consult and assess", "Engineer and install", "Commission, monitor and maintain"],
   },
   projects: {
     eyebrow: "Our projects",
     title: "Engineering solutions built around the way your facility operates.",
     intro: "A selection of refrigeration, cold storage, commercial kitchen and electromechanical projects designed for reliable performance and long-term operation.",
-    image: "/projects.png",
+    image: "/projects.webp",
     points: [
       "Cold storage and refrigeration facilities",
       "Commercial kitchen installations",
@@ -50,15 +51,15 @@ const pages = {
     eyebrow: "Start a conversation",
     title: "Let’s build reliability into every degree.",
     intro: "Tell us about your facility, operating conditions and goals. Our team will help define the engineering path forward.",
-    image: "/contact-image.png",
+    image: "/contact-image.webp",
     points: ["Dubai, United Arab Emirates", "+968 98983622", "info@prideengs.com"],
   },
 } as const;
 
 const projectImages = [
-  "/cold-storage-facility.png",
-  "/industrial-refrigeration.PNG",
-  "/commercial.png",
+  "/cold-storage-facility.webp",
+  "/industrial-refrigeration.webp",
+  "/commercial.webp",
 ];
 
 export function generateStaticParams() {
@@ -136,7 +137,7 @@ export default function SectionPage({ params }: { params: { section: string } })
     <Header alwaysVisible />
     <main className="bg-[#fffefc] text-navy">
       <section className="relative min-h-screen overflow-hidden bg-navy text-white">
-        <div className="absolute inset-0 bg-cover bg-center opacity-65" style={{ backgroundImage: `url('${page.image}')` }} />
+        <Image src={page.image} alt={page.title} fill className="object-cover opacity-65" priority sizes="100vw" />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,25,43,.94)_0%,rgba(8,25,43,.58)_52%,rgba(8,25,43,.16)_100%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,25,43,.34)_0%,transparent_35%,rgba(8,25,43,.42)_100%)]" />
         <div className="relative mx-auto flex min-h-screen max-w-[1440px] items-end px-6 py-16 lg:px-12 lg:py-20">
@@ -255,10 +256,13 @@ function SectionContent({ section, page }: { section: string; page: (typeof page
         <div className="grid gap-3 md:grid-cols-3">
           {projectImages.map((image, index) => (
             <article key={image} className="group">
-              <div className="aspect-[4/5] overflow-hidden bg-navy">
-                <div
-                  className="h-full bg-cover bg-center transition-transform duration-[1200ms] group-hover:scale-105"
-                  style={{ backgroundImage: `url('${image}')` }}
+              <div className="aspect-[4/5] overflow-hidden bg-navy relative">
+                <Image
+                  src={image}
+                  alt="Project Image"
+                  fill
+                  className="object-cover transition-transform duration-[1200ms] group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>
 
@@ -646,5 +650,5 @@ function SectionContent({ section, page }: { section: string; page: (typeof page
 }
 
 function Feature({ title, text, image }: { title: string; text: string; image: string }) {
-  return <article className="group relative aspect-[5/4] overflow-hidden bg-navy text-white"><div className="absolute inset-0 bg-cover bg-center opacity-60 transition-transform duration-[1200ms] group-hover:scale-105" style={{ backgroundImage: `url('${image}')` }} /><div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(8,25,43,.85))]" /><div className="absolute inset-x-0 bottom-0 p-7"><h2 className="font-display text-3xl font-medium">{title}</h2><p className="mt-2 text-sm text-white/70">{text}</p></div></article>;
+  return <article className="group relative aspect-[5/4] overflow-hidden bg-navy text-white"><Image src={image} alt={title} fill className="object-cover opacity-60 transition-transform duration-[1200ms] group-hover:scale-105" sizes="(max-width: 768px) 100vw, 50vw" /><div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(8,25,43,.85))]" /><div className="absolute inset-x-0 bottom-0 p-7"><h2 className="font-display text-3xl font-medium">{title}</h2><p className="mt-2 text-sm text-white/70">{text}</p></div></article>;
 }

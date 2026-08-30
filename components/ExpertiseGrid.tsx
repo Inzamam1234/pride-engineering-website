@@ -12,6 +12,7 @@ import {
   ArrowUpRight,
   Wrench,
 } from "lucide-react";
+import Image from "next/image";
 import SplitReveal from "./SplitReveal";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -23,7 +24,7 @@ const cards = [
     desc: "Commercial and industrial refrigeration systems engineered for reliable temperature control and demanding operating environments in Oman.",
     visual:
       "radial-gradient(120% 120% at 20% 0%, #2A5A8E 0%, #112A46 55%, #0B1D33 100%)",
-    image: "/commercial.png",
+    image: "/commercial.webp",
     pattern: "frost",
     span: "lg:col-span-12",
     aspect: "aspect-[16/9] lg:aspect-[21/8]",
@@ -35,7 +36,7 @@ const cards = [
     desc: "Temperature-controlled cold rooms, cold storage and freezer systems designed to protect products, maintain quality and support reliable operations.",
     visual:
       "linear-gradient(150deg, #14304F 0%, #112A46 60%, #0B1D33 100%)",
-    image: "/Coldroom.png",
+    image: "/Coldroom.webp",
     pattern: "route",
     span: "lg:col-span-4",
     aspect: "aspect-[4/5] lg:aspect-[4/5]",
@@ -47,7 +48,7 @@ const cards = [
     desc: "High-performance commercial kitchen equipment and engineering systems designed for demanding hospitality, catering and food-service operations.",
     visual:
       "radial-gradient(130% 130% at 80% 10%, rgba(184,139,66,0.85) 0%, #7A5B2E 45%, #112A46 100%)",
-    image: "/kitchen.png",
+    image: "/kitchen.webp",
     pattern: "grid",
     span: "lg:col-span-4",
     aspect: "aspect-[4/5]",
@@ -59,7 +60,7 @@ const cards = [
     desc: "Building management systems, intelligent monitoring, technical maintenance and electromechanical engineering support that keeps critical systems running.",
     visual:
       "linear-gradient(160deg, #2A5A8E 0%, #16324E 55%, #0B1D33 100%)",
-    image: "/monitering.png",
+    image: "/monitering.webp",
     pattern: "circuit",
     span: "lg:col-span-4",
     aspect: "aspect-[4/5]",
@@ -205,16 +206,15 @@ export default function ExpertiseGrid() {
                 className="block"
               >
                 <div className={`relative ${card.aspect} overflow-hidden`}>
-                  <div
-                    aria-hidden="true"
-                    className="absolute inset-0 transition-transform duration-[1200ms] ease-signature will-change-transform group-hover:scale-[1.05]"
-                    style={{
-                      backgroundImage: `linear-gradient(rgba(17,42,70,.2), rgba(17,42,70,.45)), url('${card.image}')`,
-                      backgroundPosition: "center",
-                      backgroundSize: "cover",
-                      backgroundColor: "#112A46",
-                    }}
-                  >
+                  <div className="absolute inset-0 transition-transform duration-[1200ms] ease-signature will-change-transform group-hover:scale-[1.05]">
+                    <Image
+                      src={card.image}
+                      alt={card.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                    />
+                    <div className="absolute inset-0 bg-[linear-gradient(rgba(17,42,70,.2),rgba(17,42,70,.45))] pointer-events-none" />
                     <Pattern kind={card.pattern} />
                   </div>
 

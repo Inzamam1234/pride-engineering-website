@@ -1,28 +1,29 @@
 "use client";
+import Image from "next/image";
 
 const bmsImages = [
     {
-        image: "/bms-monitoring-services.PNG",
+        image: "/bms-monitoring-services.webp",
         title: "BMS & Monitoring Services",
         number: "01",
     },
     {
-        image: "/electrical-motor-works.PNG",
+        image: "/electrical-motor-works.webp",
         title: "Electrical & Motor Works",
         number: "02",
     },
     {
-        image: "/compressor-reconditioning.PNG",
+        image: "/compressor-reconditioning.webp",
         title: "Compressor Reconditioning",
         number: "03",
     },
     {
-        image: "/troubleshooting-maintenance.PNG",
+        image: "/troubleshooting-maintenance.webp",
         title: "Troubleshooting & Maintenance",
         number: "04",
     },
     {
-        image: "/annual-maintenance-contracts.PNG",
+        image: "/annual-maintenance-contracts.webp",
         title: "Annual Maintenance Contracts",
         number: "05",
     },
@@ -60,13 +61,15 @@ export default function BMSShowcase() {
                             key={item.number}
                             className="group relative overflow-hidden bg-[#0b1d33]"
                         >
-                            <div className="aspect-[4/3] overflow-hidden">
-                                <div
-                                    className="h-full w-full bg-cover bg-center transition-transform duration-[1200ms] ease-out group-hover:scale-105"
-                                    style={{
-                                        backgroundImage: `linear-gradient(rgba(8,25,43,.15), rgba(8,25,43,.82)), url('${item.image}')`,
-                                    }}
+                            <div className="aspect-[4/3] overflow-hidden relative">
+                                <Image
+                                    src={item.image}
+                                    alt={item.title}
+                                    fill
+                                    className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+                                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                 />
+                                <div className="absolute inset-0 bg-[linear-gradient(rgba(8,25,43,.15),rgba(8,25,43,.82))] pointer-events-none" />
                             </div>
 
                             {/* Number */}

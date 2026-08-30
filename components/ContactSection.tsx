@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -27,7 +28,16 @@ export default function ContactSection() {
 
   return <section ref={scope} id="contact" className="relative z-10 h-[165vh] bg-navy">
     <div className="sticky top-0 h-screen overflow-hidden">
-      <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/pride-web-hero-image.png')" }} />
+      <div className="absolute inset-0">
+        <Image
+          src="/pride-web-hero-image.webp"
+          alt=""
+          fill
+          sizes="100vw"
+          quality={80}
+          className="object-cover"
+        />
+      </div>
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,25,43,.2)_0%,rgba(8,25,43,.28)_40%,rgba(8,25,43,.88)_100%)]" />
       <div data-contact-content className="relative mx-auto flex h-full max-w-[1440px] items-start px-6 pt-32 text-white lg:px-12 lg:pt-40">
         <div className="grid w-full gap-10 lg:grid-cols-12 lg:items-start">

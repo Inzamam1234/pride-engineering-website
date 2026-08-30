@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -12,27 +13,27 @@ const projects = [
   {
     title: "Al Qurum Resort",
     type: "HOSPITALITY",
-    image: "/project-al-qurum-resort.jpeg",
+    image: "/project-al-qurum-resort.webp",
   },
   {
     title: "Grand Hypermarket",
     type: "COMMERCIAL",
-    image: "project-grand-hypermarket.jpeg",
+    image: "/project-grand-hypermarket.webp",
   },
   {
     title: "Hospital Project",
     type: "HEALTHCARE",
-    image: "/project-hospital.jpeg",
+    image: "/project-hospital.webp",
   },
   {
     title: "City Centre Muscat",
     type: "COMMERCIAL",
-    image: "/project-city-centre.jpeg",
+    image: "/project-city-centre.webp",
   },
   {
     title: "Cancer Care Hospital",
     type: "HEALTHCARE",
-    image: "/project-cancer-hospital.jpeg",
+    image: "/project-cancer-hospital.webp",
   },
 ];
 
@@ -92,7 +93,14 @@ export default function Projects() {
       <div ref={rail} onScroll={updatePosition} className="project-rail flex gap-3 overflow-x-auto pb-2 pl-6 lg:pl-12">
       {projects.map((project) => <a key={project.title} href="#contact" data-project-card onPointerMove={moveCursor} onPointerEnter={() => cursor.current?.classList.add("is-visible")} onPointerLeave={() => cursor.current?.classList.remove("is-visible")} className="project-card group block shrink-0 snap-start">
         <div className="relative aspect-[3/4] overflow-hidden bg-navy">
-          <div className="absolute inset-0 bg-cover bg-center transition-transform duration-[1300ms] ease-signature group-hover:scale-[1.045]" style={{ backgroundImage: `url('${project.image}')` }} />
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            sizes="(max-width: 767px) 90vw, 33vw"
+            quality={80}
+            className="object-cover transition-transform duration-[1300ms] ease-signature group-hover:scale-[1.045]"
+          />
           <div className="absolute inset-0 bg-navy/5 transition-colors duration-500 group-hover:bg-navy/20" />
         </div>
         <div className="pt-4 text-navy">
