@@ -1,24 +1,25 @@
 "use client";
+import Image from "next/image";
 
 const refrigerationImages = [
     {
-        image: "/commercial-refrigeration.PNG",
+        image: "/commercial-refrigeration.webp",
         title: "Commercial Refrigeration",
     },
     {
-        image: "/industrial-refrigeration.PNG",
+        image: "/industrial-refrigeration.webp",
         title: "Industrial Refrigeration",
     },
     {
-        image: "/medical-refrigeration.PNG",
+        image: "/medical-refrigeration.webp",
         title: "Medical Refrigeration",
     },
     {
-        image: "/display-refrigeration.PNG",
+        image: "/display-refrigeration.webp",
         title: "Display Refrigeration",
     },
     {
-        image: "/ice-plants.PNG",
+        image: "/ice-plants.webp",
         title: "Ice Plants",
     },
 ];
@@ -53,11 +54,13 @@ export default function RefrigerationShowcase() {
                             key={item.image}
                             className="group relative overflow-hidden bg-navy"
                         >
-                            <div className="aspect-[4/3] overflow-hidden">
-                                <img
+                            <div className="aspect-[4/3] overflow-hidden relative">
+                                <Image
                                     src={item.image}
                                     alt={item.title}
-                                    className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                                    fill
+                                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                 />
                             </div>
 

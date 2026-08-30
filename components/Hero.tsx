@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { CustomEase } from "gsap/CustomEase";
 import { useGSAP } from "@gsap/react";
@@ -49,7 +50,17 @@ export default function Hero() {
     </p>
     
     <div data-hero-photo className="absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
-      <div data-hero-photo-image className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/main-image-pride.PNG')" }} />
+      <div data-hero-photo-image className="absolute inset-0">
+        <Image
+          src="/main-image-pride.webp"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          quality={80}
+          className="object-cover"
+        />
+      </div>
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,25,43,.78)_0%,rgba(8,25,43,.42)_53%,rgba(8,25,43,.14)_100%)]" />
     </div>
     <div data-hero-wordmark aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-[3.5vw] z-10 flex select-none items-end justify-center overflow-hidden font-display text-[17.5vw] font-bold leading-[.72] tracking-[-0.075em] text-navy">

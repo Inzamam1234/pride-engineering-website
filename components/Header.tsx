@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 
 const links = [
@@ -15,13 +16,15 @@ export function LogoMark({ dark = false }: { dark?: boolean }) {
   return (
     <Link
       href="/"
-      className="inline-flex items-center"
+      className="inline-flex items-center relative h-20 w-40"
       aria-label="Pride Engineering Services LLC — Home"
     >
-      <img
-        src={dark ? "/pride-logo-gold-final.png" : "/pridelogo-removebg.png"}
+      <Image
+        src={dark ? "/pride-logo-gold-final.webp" : "/pridelogo-removebg.webp"}
         alt="Pride Engineering Services"
-        className="h-20 w-auto object-contain"
+        fill
+        className="object-contain object-left"
+        sizes="160px"
       />
     </Link>
   );

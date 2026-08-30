@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: "/pride-favicon.png",
+    icon: "/pride-favicon.webp",
   },
 
   openGraph: {
