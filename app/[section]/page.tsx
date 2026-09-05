@@ -52,7 +52,7 @@ const pages = {
     title: "Let’s build reliability into every degree.",
     intro: "Tell us about your facility, operating conditions and goals. Our team will help define the engineering path forward.",
     image: "/contact-image.webp",
-    points: ["Dubai, United Arab Emirates", "+968 98983622", "info@prideengs.com"],
+    points: ["Muscat, Oman", "+968 98983622", "info@prideengs.com"],
   },
 } as const;
 

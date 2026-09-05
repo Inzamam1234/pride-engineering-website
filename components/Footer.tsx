@@ -116,7 +116,7 @@ export default function Footer({ stacked = false }: { stacked?: boolean }) {
                 </li>
                 <li className="flex items-center gap-3">
                   <Phone size={16} className="shrink-0 text-gold" />
-                  <a href="tel:+97140000000" className="transition-colors hover:text-white">
+                  <a href="tel:+968 98983622" className="transition-colors hover:text-white">
                     +968 98983622
                   </a>
                 </li>
